@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Engineering Path - Brian Suhit</title>
+    <!-- Fuente Geist Mono -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CONTENEDOR GENERAL -->
+    <div class="app-container">
+        
+        <!-- 1. BARRA SUPERIOR (HEADER) -->
+        <!-- Modificación: Se vuelve a unir la barra de progreso con el título -->
+        <header class="header-panel">
+            <div class="progress-container">
+                <span class="progress-text">PATH PROGRESS</span>
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-bar-fill"></div>
+                </div>
+            </div>
+            <h2>AI ENGINEER PATH</h2>
+        </header>
+
+        <!-- 2. CUERPO DE LA APP (SIDEBAR + AULA) -->
+        <div class="main-layout">
+            
+            <!-- SIDEBAR IZQUIERDO -->
+            <aside class="sidebar-panel">
+                <!-- Modificación: Título "Index" eliminado del sidebar -->
+                <ul id="nodes-list" class="nodes-list">
+                    <!-- JS inyectará los 17 nodos aquí -->
+                </ul>
+            </aside>
+
+            <!-- ESCENARIO CENTRAL (AULA) -->
+            <main class="classroom-panel">
+                <div class="classroom-header">
+                    <h2 id="classroom-title">Cargando unidad...</h2>
+                    <p id="classroom-desc">Cargando descripción...</p>
+                </div>
+                
+                <!-- Rejilla de subtemas -->
+                <div id="topics-grid" class="topics-grid">
+                    <!-- JS inyectará las tarjetas aquí -->
+                </div>
+
+                <!-- Modificación: Vista de detalle que reemplaza a la grilla -->
+                <div id="topic-detail-view" class="topic-detail-view hidden">
+                    <div class="topic-detail-content">
+                        <h2 id="topic-detail-title"></h2>
+                        <div id="topic-detail-body"></div>
+                    </div>
+                    <button id="btn-back-to-grid" class="back-btn">← Volver</button>
+                </div>
+
+                <!-- Botón de Proyecto (Si corresponde) -->
+                <div id="project-container" class="project-container hidden">
+                    <!-- JS inyectará el proyecto aquí -->
+                </div>
+                
+                <!-- Navegación inferior -->
+                <div class="navigation-footer">
+                    <button id="btn-prev" class="nav-btn">Anterior</button>
+                    <button id="btn-next" class="nav-btn">Siguiente</button>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

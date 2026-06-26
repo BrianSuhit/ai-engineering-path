@@ -1,0 +1,284 @@
+:root {
+    --bg-core: #e0e0dc;          /* Gris claro suave de fondo */
+    --bg-card: #ffffff;          /* Paneles blanco puro */
+    --bg-nested: #f4f4f6;        /* Tarjetas internas grisáceas */
+    --text-primary: #615e85;     /* Púrpura pizarra oscuro para textos */
+    --text-secondary: #717fb0;   /* Azul grisáceo para textos secundarios */
+    --accent-blue: #90b2d6;      /* Azul pastel activo */
+    --accent-purple: #9c8dc2;    /* Violeta pastel */
+    --accent-green: #a3d1af;     /* Verde sabio completado */
+    --accent-peach: #ebc3a7;     /* Durazno pendiente */
+    --font-stack: 'Geist Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-core);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    height: 100vh;
+    overflow: hidden; /* Evita scroll global, el scroll es interno de cada panel */
+    padding: 1.5rem;
+}
+
+/* CONTENEDOR GENERAL */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 3rem); /* Altura de pantalla menos el padding del body */
+    gap: 1.5rem;
+}
+
+/* 1. BARRA SUPERIOR (HEADER) */
+.header-panel {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    display: flex; /* Modificación: Volvemos a flex para alinear los items */
+    justify-content: space-between; /* Modificación: Separa el progreso del título */
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.header-panel h2 {
+    font-size: 1.3rem; /* Modificación: Tamaño de fuente ajustado */
+    font-weight: 700;
+}
+
+/* Barra de progreso (antes .progress-container) */
+/* Modificación: El contenedor de progreso vuelve a estar dentro del header */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 400px; /* Ancho fijo para la barra de progreso */
+}
+
+.progress-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+.progress-bar-bg {
+    background-color: var(--bg-nested);
+    height: 10px;
+    border-radius: 10px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%; /* JS cambiará esto */
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+/* 2. DISEÑO PRINCIPAL (SIDEBAR + AULA) */
+.main-layout {
+    display: flex;
+    flex: 1;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+/* SIDEBAR PANEL */
+.sidebar-panel {
+    width: 320px;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.nodes-list {
+    list-style: none;
+    overflow-y: auto; /* Scroll interno si hay muchos nodos */
+    flex: 1;
+}
+
+.node-item {
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.node-item:hover {
+    background-color: var(--bg-nested);
+    color: var(--text-primary);
+}
+
+.node-item.active {
+    background-color: var(--accent-purple);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* ESCENARIO CENTRAL (AULA) */
+.classroom-panel {
+    flex: 1;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.classroom-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.classroom-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 800px;
+}
+
+/* REJILLA DE TARJETAS (Topics) */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    overflow-y: auto;
+    flex: 1;
+    padding-bottom: 5rem; /* Espacio para que el footer no tape las cartas */
+}
+
+.topic-card {
+    background-color: var(--bg-nested);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+    padding: 1.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.topic-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    border-color: var(--accent-blue);
+}
+
+.topic-card h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+/* Modificación: Vista de detalle del tema (reemplaza al modal) */
+.topic-detail-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el botón "volver" hacia abajo */
+    flex: 1; /* Ocupa todo el espacio disponible */
+}
+
+.topic-detail-content {
+    text-align: center; /* Centra el título y el texto */
+    max-width: 800px;
+    margin: 0 auto; /* Centra el bloque de contenido horizontalmente */
+    overflow-y: auto;
+}
+
+.back-btn {
+    background-color: var(--bg-nested);
+    border: 1px solid rgba(0,0,0,0.05);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-stack);
+    font-size: 0.8rem;
+    transition: all 0.2s;
+    align-self: center; /* Centra el botón en el espacio del footer */
+    margin-top: 1.5rem;
+}
+
+.back-btn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+.topic-detail-view h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+.topic-detail-view div { color: var(--text-secondary); line-height: 1.6; }
+
+
+/* PROYECTO */
+.project-container {
+    background-color: rgba(144, 178, 214, 0.1);
+    border: 1px dashed var(--accent-blue);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+/* NAVEGACIÓN INFERIOR */
+.navigation-footer {
+    position: absolute;
+    bottom: 2rem;
+    right: 2.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background-color: var(--bg-nested);
+    border: 1px solid rgba(0,0,0,0.05);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-stack);
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+/* Clase de utilidad para ocultar elementos */
+.hidden {
+    display: none !important; /* Usamos important para asegurar la alternancia */
+}
+
+/* Responsive básico */
+@media (max-width: 900px) {
+    .main-layout { flex-direction: column; }
+    .sidebar-panel { width: 100%; height: 200px; }
+    .header-panel { flex-direction: column; gap: 1rem; }
+    .progress-container { width: 100%; }
+}
