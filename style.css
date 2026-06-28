@@ -237,8 +237,19 @@ body {
     text-align: center; /* Centra el título del subtema */
 }
 
-.topic-detail-view div { color: var(--text-secondary); line-height: 1.6; }
+/* Estilos para el cuerpo del contenido del detalle */
+.topic-detail-body {
+    color: var(--text-secondary); 
+    line-height: 1.6; 
+}
 
+.topic-detail-body img {
+    display: block;
+    margin: 1.5rem auto; /* Centra la imagen y le da espacio vertical */
+    max-width: 100%;
+    width: 600px;
+    border-radius: 8px;
+}
 
 /* PROYECTO */
 .project-container {
