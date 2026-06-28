@@ -165,7 +165,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
-    margin-top: 2rem;
+    padding-top: 2rem; /* Modificación: Usamos padding en vez de margin para evitar colapso */
     overflow-y: auto;
     flex: 1;
     padding-bottom: 5rem; /* Espacio para que el footer no tape las cartas */
@@ -200,15 +200,16 @@ body {
 .topic-detail-view {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empuja el botón "volver" hacia abajo */
     flex: 1; /* Ocupa todo el espacio disponible */
+    overflow: hidden; /* Evita que los hijos se desborden de este contenedor */
 }
 
 .topic-detail-content {
-    text-align: center; /* Centra el título y el texto */
+    text-align: left; /* Mejora la legibilidad del texto largo */
     max-width: 800px;
-    margin: 0 auto; /* Centra el bloque de contenido horizontalmente */
-    overflow-y: auto;
+    margin: 0 auto; /* Centra el bloque de contenido */
+    overflow-y: auto; /* Habilita el scroll si el contenido se desborda */
+    flex: 1; /* Hace que el contenedor crezca para ocupar el espacio disponible */
 }
 
 .back-btn {
@@ -230,7 +231,12 @@ body {
     color: white;
 }
 
-.topic-detail-view h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+.topic-detail-view h2 { 
+    font-size: 1.8rem; 
+    margin-bottom: 1rem; 
+    text-align: center; /* Centra el título del subtema */
+}
+
 .topic-detail-view div { color: var(--text-secondary); line-height: 1.6; }
 
 
