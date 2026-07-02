@@ -206,7 +206,7 @@ body {
 
 .topic-detail-content {
     text-align: left; /* Mejora la legibilidad del texto largo */
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto; /* Centra el bloque de contenido */
     overflow-y: auto; /* Habilita el scroll si el contenido se desborda */
     flex: 1; /* Hace que el contenedor crezca para ocupar el espacio disponible */
