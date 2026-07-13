@@ -8,23 +8,23 @@ const nodesList = [
         topics: [
             {
                 title: "¿Qué es la IA?",
-                content: "<p>Dejemos la ciencia ficción de lado. Hoy en día, la Inteligencia Artificial Generativa no es magia ni son robots con consciencia propia intentando dominar el mundo. En su forma más fundamental, es software avanzado impulsado por Redes Neuronales (específicamente modelos Transformer) que ha sido entrenado con cantidades masivas de texto para predecir, generar y razonar sobre el lenguaje humano con una precisión asombrosa.</p>"
+                file: "content/1.1.md" // RUTA FINAL: Apunta al archivo dentro de /content
             },
             {
                 title: "¿Qué es el AI Engineering?",
-                content: "<p>Si la Inteligencia Artificial es el \"cerebro\", el <em>AI Engineering</em> es el arte de construirle un \"cuerpo\" a ese cerebro para que pueda interactuar con el mundo real. Es la disciplina que se encarga de tomar estos modelos lingüísticos masivos (LLMs) y transformarlos en productos de software robustos, predecibles y seguros. Se trata de diseño de sistemas, no de investigación teórica.</p>"
+                file: "content/1.2.md"
             },
             {
                 title: "¿Qué es un AI Engineer y qué hace?",
-                content: "<p>Acá es donde la mayoría se confunde. Un <em>AI Engineer</em> (Ingeniero de IA) <strong>no</strong> se dedica a crear ni a entrenar modelos desde cero. Esa es la tarea de los <em>AI Researchers</em> o los <em>ML Engineers</em>, quienes se enfocan en la matemática y la teoría profunda.</p><p>El <strong>AI Engineer</strong> es, ante todo, un constructor y un orquestador. Según el estándar de la industria, el ingeniero utiliza modelos pre-entrenados (como Gemini, Claude o Llama) y los integra mediante APIs y herramientas existentes para resolver problemas reales y mejorar la experiencia de los usuarios. Nuestro trabajo diario implica escribir código para conectar bases de datos, gestionar el contexto que se le envía a la IA, asegurarnos de que no alucine y darle herramientas para que actúe de forma autónoma.</p>"
+                file: "content/1.3.md"
             },
             {
                 title: "¿Por qué es necesario este rol?",
-                content: "<p>Podrías preguntarte: <em>\"Si la IA ya hace todo, ¿para qué hace falta un ingeniero?\"</em>. La respuesta es simple: los modelos base vienen \"desnudos\". Un LLM recién salido de fábrica no sabe quiénes son los clientes de tu empresa, no tiene acceso a tu base de datos de ventas, no puede apretar un botón en una página web y pierde la memoria en cada nueva conversación. El <strong>AI Engineer</strong> es el puente necesario para conectar la inteligencia cruda del modelo con la infraestructura de datos privada de una empresa.</p>"
+                file: "content/1.4.md"
             },
             {
                 title: "Casos de uso (Dónde se aplica)",
-                content: "<p>Para bajar todo esto a la realidad, acá tenés ejemplos prácticos de lo que un <strong>AI Engineer</strong> construye en su día a día:</p><ul><li><strong>Sistemas RAG (Chatbots sobre datos privados):</strong> Un bot de recursos humanos que conoce todas las políticas internas de la empresa porque sabe buscar en los PDFs de la compañía antes de responder.</li><li><strong>Agentes Autónomos:</strong> Un asistente de investigación que entra a internet, busca <em>papers</em> médicos, los resume, extrae los datos clave y arma un reporte en Excel automáticamente.</li><li><strong>Herramientas de Análisis Multimodal:</strong> Un sistema que permite subir la foto de una factura arrugada y extrae el monto, el proveedor y la fecha para cargarlo en el sistema contable.</li></ul>"
+                file: "content/1.5.md"
             }
         ]
     },
@@ -565,18 +565,37 @@ function updateUI() {
 }
 
 // 4. VISTAS DEL AULA (GRILLA vs DETALLE)
-function showTopicDetail(topic) {
+async function showTopicDetail(topic) { // Modificación: La función ahora es asíncrona
     // Referencias a los contenedores
     const classroomHeader = document.querySelector('.classroom-header');
     const gridView = document.getElementById('topics-grid');
     const detailView = document.getElementById('topic-detail-view');
     const navFooter = document.querySelector('.navigation-footer');
+    const detailTitle = document.getElementById('topic-detail-title');
+    const detailBody = document.getElementById('topic-detail-body');
 
-    // Poblar el contenido del detalle (ahora usamos el objeto 'topic')
-    document.getElementById('topic-detail-title').innerText = topic.title;
-    // El contenido ahora se espera que sea HTML válido para poder incluir imágenes.
-    document.getElementById('topic-detail-body').innerHTML = topic.content;
+    // Poblar título
+    detailTitle.innerText = topic.title;
 
+    // Lógica condicional para cargar contenido
+    if (topic.file) {
+        // --- NUEVO FLUJO ---
+        detailBody.innerHTML = '<p>Cargando...</p>'; // Mensaje de carga
+        try {
+            const response = await fetch(topic.file);
+            if (!response.ok) throw new Error(`Error ${response.status}: No se pudo encontrar el archivo.`);
+            const markdownText = await response.text();
+            detailBody.innerHTML = marked.parse(markdownText);
+            hljs.highlightAll(); // Aplicar resaltado de sintaxis
+        } catch (error) {
+            console.error('Error al cargar el Markdown:', error);
+            detailBody.innerHTML = `<p>Error: No se pudo cargar el contenido.</p>`;
+        }
+    } else {
+        // --- FLUJO ANTIGUO (para retrocompatibilidad) ---
+        detailBody.innerHTML = topic.content;
+    }
+    
     // Modificación: Ocultar todos los elementos del aula y mostrar solo la vista de detalle
     classroomHeader.classList.add('hidden');
     gridView.classList.add('hidden');
