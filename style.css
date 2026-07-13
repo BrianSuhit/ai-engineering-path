@@ -38,48 +38,16 @@ body {
 .header-panel {
     background-color: var(--bg-card);
     border-radius: 16px;
-    padding: 1rem 2rem;
-    display: flex; /* Modificación: Volvemos a flex para alinear los items */
-    justify-content: space-between; /* Modificación: Separa el progreso del título */
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
 .header-panel h2 {
-    font-size: 1.3rem; /* Modificación: Tamaño de fuente ajustado */
+    font-size: 1.3rem;
     font-weight: 700;
-}
-
-/* Barra de progreso (antes .progress-container) */
-/* Modificación: El contenedor de progreso vuelve a estar dentro del header */
-.progress-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 400px; /* Ancho fijo para la barra de progreso */
-}
-
-.progress-text {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-    letter-spacing: 1px;
-}
-
-.progress-bar-bg {
-    background-color: var(--bg-nested);
-    height: 10px;
-    border-radius: 10px;
-    flex: 1;
-    overflow: hidden;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    width: 0%; /* JS cambiará esto */
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    border-radius: 10px;
-    transition: width 0.4s ease;
 }
 
 /* 2. DISEÑO PRINCIPAL (SIDEBAR + AULA) */

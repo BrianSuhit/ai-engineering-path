@@ -540,11 +540,6 @@ function loadActiveNode() {
         grid.appendChild(card);
     });
 
-    // Actualizar barra de progreso
-    const fill = document.getElementById('progress-fill');
-    const percentage = ((activeIndex + 1) / nodesList.length) * 100;
-    fill.style.width = `${percentage}%`;
-
     // Asegurarse de que siempre empecemos en la vista de grilla
     showGridView();
 }
