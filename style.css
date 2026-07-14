@@ -175,7 +175,7 @@ body {
 
 .topic-detail-content {
     text-align: left; /* Mejora la legibilidad del texto largo */
-    max-width: 900px;
+    max-width: 1000px; /* Aumentado para dar más espacio al contenido */
     margin: 0 auto; /* Centra el bloque de contenido */
     overflow-y: auto; /* Habilita el scroll si el contenido se desborda */
     flex: 1; /* Hace que el contenedor crezca para ocupar el espacio disponible */
@@ -267,4 +267,21 @@ body {
     .sidebar-panel { width: 100%; height: 200px; }
     .header-panel { flex-direction: column; gap: 1rem; }
     .progress-container { width: 100%; }
+}
+
+.topic-detail-view pre {
+    background-color: var(--bg-nested) !important; /* Fuerza el fondo oscuro de tu tema */
+    color: var(--text) !important;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto; /* Scroll horizontal si el código es largo */
+    margin: 1.5rem 0;
+    border: 1px solid #333;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.topic-detail-view code {
+    font-family: var(--font-stack);
+    font-size: 0.9rem;
 }
