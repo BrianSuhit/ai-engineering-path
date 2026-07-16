@@ -475,16 +475,20 @@ const nodesList = [
         desc: "Metodología de trabajo del ingeniero moderno. Integración de Spec-Driven Development (SDD) utilizando agentes de IA y herramientas de autocompletado para acelerar la creación de software robusto y documentado.",
         topics: [
             {
-                title: "The Paradigm Shift & The Tools",
+                title: "The Vibe Coding Era & Rapid Prototyping",
                 file: "content/18.1.md"
             },
             {
-                title: "Spec-Driven Development (The Methodology)",
+                title: "AI Pair Programming & Technical Debt",
                 file: "content/18.2.md"
             },
             {
-                title: "Hands-On: From Spec to Code",
+                title: "Spec-Driven Development (SDD)",
                 file: "content/18.3.md"
+            },
+            {
+                title: "Hands-On: The Brewery App",
+                file: "content/18.4.md"
             }
         ]
     }
