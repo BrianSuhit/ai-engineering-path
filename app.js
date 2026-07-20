@@ -370,27 +370,27 @@ const nodesList = [
     },
     {
         id: "14",
-        title: "14. AI Safety and Ethics",
+        title: "14. AI Guardrails",
         desc: "La etapa de protección activa. Aplicación de marcos éticos y \"guardrails\" técnicos (filtros de seguridad y lógica de código) para asegurar que la IA responda dentro de límites seguros y confiables en producción.",
         topics: [
             {
-                title: "The Security Landscape (Bias & Privacy)",
+                title: "What are Guardrails?",
                 file: "content/14.1.md"
             },
             {
-                title: "Prompt Injections & Adversarial Testing",
+                title: "Types of Guardrails and The Data Flow",
                 file: "content/14.2.md"
             },
             {
-                title: "Input Guardrails (Protection at the door)",
+                title: "When to Choose Which Guardrails",
                 file: "content/14.3.md"
             },
             {
-                title: "Output Guardrails (Catching the failures)",
+                title: "Implementing Input Guardrails",
                 file: "content/14.4.md"
             },
             {
-                title: "Hands-On: Building a Secure Pipeline",
+                title: "Implementing Output Guardrails",
                 file: "content/14.5.md"
             }
         ]
