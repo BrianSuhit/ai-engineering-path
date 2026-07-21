@@ -398,28 +398,24 @@ const nodesList = [
     ,
     {
         id: "15",
-        title: "15. LLM Evaluations",
+        title: "15. AI Evals (Red Teaming)",
         desc: "La etapa de auditoría de calidad. Implementación de pruebas sistemáticas y métricas (determinísticas y basadas en modelos) para medir científicamente la precisión, sesgo y calidad de las respuestas antes del despliegue.",
         topics: [
             {
-                title: "The Evaluation Dilemma",
+                title: "15.1 The Evaluation Dilemma: Benchmarks vs. Real-World Apps",
                 file: "content/15.1.md"
             },
             {
-                title: "Exact & Semantic Metrics (Code & Math)",
+                title: "Red Teaming: The Offensive Audit",
                 file: "content/15.2.md"
             },
             {
-                title: "LLM-as-a-Judge (Model-Based Evals)",
+                title: "The Evaluation Workflow (A Full Red Teaming Assessment)",
                 file: "content/15.3.md"
             },
             {
-                title: "Comparative Evaluation (A/B Testing)",
+                title: "LLM Vulnerabilities & Exploits",
                 file: "content/15.4.md"
-            },
-            {
-                title: "Hands-On: Building a Vanilla Eval Pipeline",
-                file: "content/15.5.md"
             }
         ]
     },
