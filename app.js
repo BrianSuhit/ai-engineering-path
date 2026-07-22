@@ -7,23 +7,23 @@ const nodesList = [
         desc: "El punto de partida para entender el ecosistema de la IA en 2026. Define el rol del AI Engineer como el arquitecto que integra modelos pre-entrenados en productos de software, diferenciándolo del investigador académico y estableciendo la mentalidad de \"orientación a producto\".",
         topics: [
             {
-                title: "¿Qué es la IA?",
+                title: "What is AI?",
                 file: "content/1.1.md"
             },
             {
-                title: "¿Qué es el AI Engineering?",
+                title: "What is AI Engineering?",
                 file: "content/1.2.md"
             },
             {
-                title: "¿Qué es un AI Engineer y qué hace?",
+                title: "What is an AI Engineer and What Do They Do?",
                 file: "content/1.3.md"
             },
             {
-                title: "¿Por qué es necesario este rol?",
+                title: "Why is This Role Necessary?",
                 file: "content/1.4.md"
             },
             {
-                title: "Casos de uso (Dónde se aplica)",
+                title: "Use Cases (Where It's Applied)",
                 file: "content/1.5.md"
             }
         ]
@@ -34,27 +34,27 @@ const nodesList = [
         desc: "El estudio del \"cerebro\" desde su arquitectura básica. Comprender qué es un Transformer, cómo funciona la atención, la tokenización y la naturaleza probabilística de la generación de texto para saber qué esperar de cada modelo.",
         topics: [
             {
-                title: "¿Qué es un LLM?",
+                title: "What is an LLM?",
                 file: "content/2.1.md"
             },
             {
-                title: "Tokenización",
+                title: "Tokenization",
                 file: "content/2.2.md"
             },
             {
-                title: "Embeddings de Tokens",
+                title: "Token Embeddings",
                 file: "content/2.3.md"
             },
             {
-                title: "El Bloque Transformer",
+                title: "The Transformer Block",
                 file: "content/2.4.md"
             },
             {
-                title: "El Mecanismo de Atención",
+                title: "The Attention Mechanism",
                 file: "content/2.5.md"
             },
             {
-                title: "Decodificación y Muestreo",
+                title: "Decoding and Sampling",
                 file: "content/2.6.md"
             }
         ]
@@ -65,23 +65,23 @@ const nodesList = [
         desc: "Evaluación y clasificación del ecosistema: Modelos Propietarios (comerciales en la nube) frente a modelos Open Source (código abierto con pesos libres). Entender sus diferencias de arquitectura, licencias y potencial.",
         topics: [
             {
-                title: "El Paradigma Pre-entrenado (Del Motor al Ecosistema)",
+                title: "The Pre-trained Paradigm (From Engine to Ecosystem)",
                 file: "content/3.1.md"
             },
             {
-                title: "La División del Ecosistema: Open vs. Closed Source",
+                title: "The Ecosystem Division: Open vs. Closed Source",
                 file: "content/3.2.md"
             },
             {
-                title: "Modelos Propietarios (Closed Source)",
+                title: "Proprietary Models (Closed Source)",
                 file: "content/3.3.md"
             },
             {
-                title: "Open Source y Open Weights",
+                title: "Open Source and Open Weights",
                 file: "content/3.4.md"
             },
             {
-                title: "APIs de Modelos vs. Self-Hosting",
+                title: "Model APIs vs. Self-Hosting",
                 file: "content/3.5.md"
             }
         ]
@@ -92,27 +92,27 @@ const nodesList = [
         desc: "Antes de interactuar con cualquier modelo de IA, un AI Engineer debe preparar su entorno de desarrollo. En este nodo se aprende la disciplina de aislamiento y seguridad que exige la industria.",
         topics: [
             {
-                title: "Por qué Python y el Entorno Profesional",
+                title: "Why Python and the Professional Environment",
                 file: "content/4.1.md"
             },
             {
-                title: "Arquitectura de Proyecto y Modularidad",
+                title: "Project Architecture and Modularity",
                 file: "content/4.2.md"
             },
             {
-                title: "Entornos Virtuales y Dependencias",
+                title: "Virtual Environments and Dependencies",
                 file: "content/4.3.md"
             },
             {
-                title: "Gestión de Secretos",
+                title: "Secrets Management",
                 file: "content/4.4.md"
             },
             {
-                title: "Formateo de Código y Linting",
+                title: "Code Formatting and Linting",
                 file: "content/4.5.md"
             },
             {
-                title: "Control de Versiones (Git & GitHub)",
+                title: "Version Control (Git & GitHub)",
                 file: "content/4.6.md"
             }
         ]
@@ -123,23 +123,23 @@ const nodesList = [
         desc: "Aprender a elegir el modelo correcto para cada proyecto, evaluando las métricas clave (costo, latencia, contexto) tanto para APIs en la nube como para modelos locales. Implementación práctica con Gemini y Ollama.",
         topics: [
             {
-                title: "Emparejando el Modelo con el Proyecto",
+                title: "Matching the Model to the Project",
                 file: "content/5.1.md"
             },
             {
-                title: "La Matriz de Decisión (Estrategia y APIs en la Nube)",
+                title: "The Decision Matrix (Strategy and Cloud APIs)",
                 file: "content/5.2.md"
             },
             {
-                title: "La Matriz de Decisión (Hardware Local y Pesos Abiertos)",
+                title: "The Decision Matrix (Local Hardware and Open Weights)",
                 file: "content/5.3.md"
             },
             {
-                title: "APIs en la Nube (El Carril Rápido)",
+                title: "Cloud APIs (The Fast Lane)",
                 file: "content/5.4.md"
             },
             {
-                title: "Inferencia Local con Ollama (El Carril Privado)",
+                title: "Local Inference with Ollama (The Private Lane)",
                 file: "content/5.5.md"
             }
         ]
@@ -150,23 +150,23 @@ const nodesList = [
         desc: "La ingeniería de la instrucción. Aprender a programar en lenguaje natural utilizando estructuras precisas (System, User, Assistant), técnicas de pocos ejemplos (Few-shot) y cadenas de pensamiento (CoT) para guiar al modelo hacia una respuesta exacta.",
         topics: [
             {
-                title: "La Anatomía de un Prompt (System, User & Assistant)",
+                title: "The Anatomy of a Prompt (System, User & Assistant)",
                 file: "content/6.1.md"
             },
             {
-                title: "Aprendizaje en Contexto (Prompting Zero-Shot & Few-Shot)",
+                title: "In-Context Learning (Zero-Shot & Few-Shot Prompting)",
                 file: "content/6.2.md"
             },
             {
-                title: "Razonamiento Avanzado (Chain-of-Thought & Self-Consistency)",
+                title: "Advanced Reasoning (Chain-of-Thought & Self-Consistency)",
                 file: "content/6.3.md"
             },
             {
-                title: "Salidas Estructuradas (JSON Prompting)",
+                title: "Structured Outputs (JSON Prompting)",
                 file: "content/6.4.md"
             },
             {
-                title: "Prompting Defensivo (Seguridad e Inyecciones de Prompt)",
+                title: "Defensive Prompting (Security and Prompt Injections)",
                 file: "content/6.5.md"
             }
         ]
@@ -402,7 +402,7 @@ const nodesList = [
         desc: "La etapa de auditoría de calidad. Implementación de pruebas sistemáticas y métricas (determinísticas y basadas en modelos) para medir científicamente la precisión, sesgo y calidad de las respuestas antes del despliegue.",
         topics: [
             {
-                title: "15.1 The Evaluation Dilemma: Benchmarks vs. Real-World Apps",
+                title: "The Evaluation Dilemma: Benchmarks vs. Real-World Apps",
                 file: "content/15.1.md"
             },
             {
@@ -496,11 +496,35 @@ document.addEventListener('DOMContentLoaded', () => {
     buildSidebar();
     loadActiveNode();
 
-    // Eventos de botones
+    // --- Eventos de Navegación Principal ---
     document.getElementById('btn-next').addEventListener('click', nextPage);
     document.getElementById('btn-prev').addEventListener('click', prevPage); 
-    document.getElementById('btn-back-to-grid').addEventListener('click', showGridView); // Modificación: Nuevo evento para el botón de volver
+    document.getElementById('btn-back-to-grid').addEventListener('click', showGridView);
+
+    // --- Lógica del Menú Hamburguesa (Móvil) ---
+    const btnToggle = document.getElementById('btn-toggle-sidebar');
+    const sidebar = document.querySelector('.sidebar-panel');
+    const btnClose = document.getElementById('btn-close-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('is-open');
+        overlay.classList.toggle('hidden');
+    }
+    
+    btnToggle.addEventListener('click', toggleSidebar);
+    btnClose.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
 });
+
+function closeSidebarIfOpen() {
+    const sidebar = document.querySelector('.sidebar-panel');
+    if (sidebar.classList.contains('is-open')) {
+        const overlay = document.getElementById('sidebar-overlay');
+        sidebar.classList.remove('is-open');
+        overlay.classList.add('hidden');
+    }
+}
 
 // 1. DIBUJAR EL SIDEBAR
 function buildSidebar() {
@@ -513,6 +537,7 @@ function buildSidebar() {
         li.innerText = node.title;
         li.addEventListener('click', () => {
             activeIndex = index;
+            closeSidebarIfOpen(); // Cierra el menú al seleccionar un tema
             updateUI();
         });
         list.appendChild(li);

@@ -43,13 +43,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Para anclar el botón de hamburguesa */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+/* Estilos para el botón de hamburguesa (oculto en escritorio) */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute; /* Posicionado relativo al header */
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .header-panel h2 {
     font-size: 1.3rem;
     font-weight: 700;
 }
+
+/* Estilos para el botón de cierre (oculto por defecto en todas las vistas) */
+.close-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+.close-btn:hover { 
+    color: var(--text-primary); 
+}
+
 
 /* 2. DISEÑO PRINCIPAL (SIDEBAR + AULA) */
 .main-layout {
@@ -263,10 +291,73 @@ body {
 
 /* Responsive básico */
 @media (max-width: 900px) {
-    .main-layout { flex-direction: column; }
-    .sidebar-panel { width: 100%; height: 200px; }
-    .header-panel { flex-direction: column; gap: 1rem; }
-    .progress-container { width: 100%; }
+    body {
+        padding: 1rem;
+        height: auto;
+        overflow: visible; /* Permite el scroll en móvil */
+    }
+
+    .app-container {
+        height: auto;
+        gap: 1rem;
+    }
+
+    .main-layout { 
+        flex-direction: column; 
+        gap: 1rem;
+    }
+
+    /* Hacemos visible el botón de hamburguesa */
+    .hamburger-btn {
+        display: block;
+        z-index: 1001; /* Por encima de todo */
+    }
+    /* Sobreescribimos la clase .hidden que le pusimos en el HTML */
+    .hamburger-btn.hidden {
+        display: block !important;
+    }
+
+    /* Transformamos el sidebar en un menú off-canvas */
+    .sidebar-panel {
+        position: fixed; /* Lo sacamos del flujo normal */
+        left: 0;
+        top: 0;
+        width: 300px; /* Ancho del menú desplegado */
+        height: 100%;
+        z-index: 1000;
+        transform: translateX(-100%); /* Lo ocultamos fuera de la pantalla */
+        transition: transform 0.3s ease-in-out; /* Animación suave */
+        box-shadow: 5px 0px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Clase que se añadirá con JS para mostrar el menú */
+    .sidebar-panel.is-open {
+        transform: translateX(0);
+    }
+
+    /* Estilos para el botón de cierre dentro del sidebar */
+    .close-btn {
+        display: block; /* Se hace visible en móvil */
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        color: var(--text-primary); /* Aumentamos el contraste para que sea más visible */
+    }
+    .sidebar-panel.is-open .close-btn { display: block; } /* Se muestra solo cuando el menú está abierto */
+
+    /* Estilos para el overlay del fondo */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999; /* Justo debajo del sidebar */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .sidebar-overlay:not(.hidden) { opacity: 1; }
 }
 
 .topic-detail-view pre {

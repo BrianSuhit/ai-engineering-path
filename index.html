@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Engineering Path - Brian Suhit</title>
-    <!-- Fuente Geist Mono -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap">
     <link rel="stylesheet" href="style.css">
     <!-- Dependencias para Markdown y Resaltado de Sintaxis -->
@@ -19,6 +19,8 @@
         
         <!-- 1. BARRA SUPERIOR (HEADER) -->
         <header class="header-panel">
+            <!-- Botón de menú hamburguesa (visible solo en móvil) -->
+            <button id="btn-toggle-sidebar" class="hamburger-btn hidden">☰</button>
             <h2>AI ENGINEER PATH</h2>
         </header>
 
@@ -27,9 +29,11 @@
             
             <!-- SIDEBAR IZQUIERDO -->
             <aside class="sidebar-panel">
+                <!-- Botón para cerrar el menú en móvil -->
+                <button id="btn-close-sidebar" class="close-btn">&times;</button>
                 <!-- Modificación: Título "Index" eliminado del sidebar -->
                 <ul id="nodes-list" class="nodes-list">
-                    <!-- JS inyectará los 17 nodos aquí -->
+                    <!-- JS inyectará los 18 nodos aquí -->
                 </ul>
             </aside>
 
@@ -68,6 +72,9 @@
 
         </div>
     </div>
+
+    <!-- Overlay para el menú lateral (visible solo en móvil) -->
+    <div id="sidebar-overlay" class="sidebar-overlay hidden"></div>
 
     <script src="app.js"></script>
 </body>
